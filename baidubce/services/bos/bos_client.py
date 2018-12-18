@@ -760,7 +760,7 @@ class BosClient(BceBaseClient):
             if content_md5 is None:
                 recv_buf_size = self._get_config_parameter(config, 'recv_buf_size')
                 content_md5 = utils.get_md5_from_fp(fp, length=content_length,
-                                                    buf_size=recv_buf_size)
+                                                    buf_size=recv_buf_size).decode()
             if content_type is None:
                 content_type = utils.guess_content_type_by_file_name(file_name)
             return self.put_object(bucket, key, fp,
